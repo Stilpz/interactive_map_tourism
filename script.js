@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     attractions.forEach(function(attraction) {
         var attractionMarker = L.marker(attraction.coords, {icon: attraction.icon}).addTo(map);
-        var popupContent = '<div style="text-align:center;"><img src="' + attraction.image + '" alt="' + attraction.name + '" style="max-width: 100px; max-height: 100px;"><h3>' + attraction.name + '</h3><p>' + attraction.description + '</p></div>';
+        var popupContent = '<div style="text-align:center;"><h3>' + attraction.name + '</h3><img src="' + attraction.image + '" alt="' + attraction.name + '" style="max-width: 100px; max-height: 100px;"><p>' + attraction.description + '</p></div>';
         attractionMarker.bindPopup(popupContent);
     });
 });
