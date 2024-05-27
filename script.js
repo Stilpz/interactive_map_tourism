@@ -6,6 +6,21 @@ document.addEventListener('DOMContentLoaded', function () {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
     }).addTo(map);
 
+    // Iconos personalizados
+    var cityIcon = L.icon({
+        iconUrl: 'city-icon.png', // Ruta del icono de ciudad
+        iconSize: [40, 40], // Tamaño del icono
+        iconAnchor: [20, 40], // Punto de anclaje del icono
+        popupAnchor: [0, -40] // Punto de anclaje del popup
+    });
+
+    var attractionIcon = L.icon({
+        iconUrl: 'attraction-icon.png', // Ruta del icono de sitio de interés turístico
+        iconSize: [40, 40], // Tamaño del icono
+        iconAnchor: [20, 40], // Punto de anclaje del icono
+        popupAnchor: [0, -40] // Punto de anclaje del popup
+    });
+
     // Marcadores de ciudades
     var cities = [
         {coords: [4.3369, -75.8275], description: 'La centinela del Valle', popupText: '<b>Caicedonia</b>'},
@@ -16,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
     cities.forEach(function(marker) {
-        L.marker(marker.coords).addTo(map)
+        L.marker(marker.coords, {icon: cityIcon}).addTo(map)
             .bindPopup('<b>' + marker.popupText + '</b><br>' + marker.description);
     });
 
@@ -30,14 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
     attractions.forEach(function(marker) {
-        L.marker(marker.coords, {
-            icon: L.icon({
-                iconUrl: 'custom-icon.png', // Ruta de la imagen del icono personalizado
-                iconSize: [40, 40], // Tamaño del icono
-                iconAnchor: [20, 40], // Punto de anclaje del icono
-                popupAnchor: [0, -40] // Punto de anclaje del popup
-            })
-        }).addTo(map)
+        L.marker(marker.coords, {icon: attractionIcon}).addTo(map)
             .bindPopup('<b>' + marker.popupText + '</b><br>' + marker.description);
     });
 });
