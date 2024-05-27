@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     cities.forEach(function(city) {
         var cityMarker = L.marker(city.coords, {icon: cityIcons[city.name]}).addTo(map);
-        var popupContent = '<div style="text-align:center;"><h3>' + city.name + '</h3><img src="' + city.image + '" alt="' + city.name + '" style="max-width: 150px; max-height: 150px;"><p>' + city.description + '</p></div>';
+        var popupContent = '<div style="text-align:center;"><h3>' + city.name + '</h3><img src="' + city.image + '" alt="' + city.name + '" class="popup-image"><p>' + city.description + '</p></div>';
         cityMarker.bindPopup(popupContent);
     });
 
@@ -109,7 +109,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     attractions.forEach(function(attraction) {
         var attractionMarker = L.marker(attraction.coords, {icon: attraction.icon}).addTo(map);
-        var popupContent = '<div style="text-align:center;"><h3>' + attraction.name + '</h3><img src="' + attraction.image + '" alt="' + attraction.name + '" style="max-width: 100px; max-height: 100px;"><p>' + attraction.description + '</p></div>';
+        var popupContent = '<div style="text-align:center;"><h3>' + attraction.name + '</h3><img src="' + attraction.image + '" alt="' + attraction.name + '" class="popup-image"><p>' + attraction.description + '</p></div>';
         attractionMarker.bindPopup(popupContent);
+        attractionMarker.on('click', function () {
+            var imagePopup = L.popup()
+                .setLatLng(attraction.coords)
+                .setContent('<img src="' + attraction.image + '" alt="' + attraction.name + '" class="popup-image">')
+                .openOn(map);
+        });
     });
 });
