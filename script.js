@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var cities = [
         {coords: [4.287, -75.935], name: 'Sevilla', description: 'Pueblo Mágico, Capital cafetera y Balcón del Valle', image: 'sevilla-image.jpg'},
         {coords: [4.415, -76.147], name: 'Roldanillo', description: 'Pueblo Mágico', image: 'roldanillo-image.jpg'},
-        {coords: [4.533, -75.753], name: 'LaUnion', description: 'La puerta al Paisaje Cultural Cafetero', image: 'launion-image.jpg'},
+        {coords: [4.53309, -76.10383], name: 'LaUnion', description: 'La puerta al Paisaje Cultural Cafetero', image: 'launion-image.jpg'},
         {coords: [4.3369, -75.8275], name: 'Caicedonia', description: 'La centinela del Valle', image: 'caicedonia-image.jpg'},
         {coords: [4.3936, -76.0742], name: 'Zarzal', description: 'La tierra que endulza a Colombia', image: 'zarzal-image.jpg'}
     ];
