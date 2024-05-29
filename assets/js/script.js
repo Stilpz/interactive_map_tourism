@@ -10,31 +10,31 @@ document.addEventListener('DOMContentLoaded', function () {
     var cityIcons = {
         Sevilla: L.icon({
             iconUrl: 'assets/img/icons/sevilla-icon.png', // Icono de Sevilla
-            iconSize: [40, 40],
+            iconSize: [60, 60],
             iconAnchor: [20, 40],
             popupAnchor: [0, -40]
         }),
         Roldanillo: L.icon({
             iconUrl: 'assets/img/icons/roldanillo-icon.png', // Icono de Roldanillo
-            iconSize: [40, 40],
+            iconSize: [60, 60],
             iconAnchor: [20, 40],
             popupAnchor: [0, -40]
         }),
         LaUnion: L.icon({
             iconUrl: 'assets/img/icons/launion-icon.png', // Icono de La Unión
-            iconSize: [40, 40],
+            iconSize: [60, 60],
             iconAnchor: [20, 40],
             popupAnchor: [0, -40]
         }),
         Caicedonia: L.icon({
             iconUrl: 'assets/img/icons/caicedonia-icon.png', // Icono de Caicedonia
-            iconSize: [40, 40],
+            iconSize: [60, 60],
             iconAnchor: [20, 40],
             popupAnchor: [0, -40]
         }),
         Zarzal: L.icon({
             iconUrl: 'assets/img/icons/zarzal-icon.png', // Icono de Zarzal
-            iconSize: [40, 40],
+            iconSize: [60, 60],
             iconAnchor: [20, 40],
             popupAnchor: [0, -40]
         }),
