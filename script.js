@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var map = L.map('map').setView([4.53309, -76.10383], 12); // Coordenadas corregidas de La Unión, Valle del Cauca
+    var map = L.map('map').setView([4.3936, -76.0742], 12); // Coordenadas corregidas de La Unión, Valle del Cauca
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -55,6 +55,13 @@ document.addEventListener('DOMContentLoaded', function () {
         popupAnchor: [0, -30]
     });
 
+    var parkIconUva = L.icon({
+        iconUrl: 'park-icon-uva.png', // Icono para parque de la Uva
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30]
+    });
+
     var artGalleryIcon = L.icon({
         iconUrl: 'art-gallery-icon.png', // Icono para galerías de arte
         iconSize: [30, 30],
@@ -66,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var cities = [
         {coords: [4.287, -75.935], name: 'Sevilla', description: 'Pueblo Mágico, Capital cafetera y Balcón del Valle', image: 'sevilla-image.jpg'},
         {coords: [4.415, -76.147], name: 'Roldanillo', description: 'Pueblo Mágico', image: 'roldanillo-image.jpg'},
-        {coords: [4.53309, -76.10383], name: 'LaUnion', description: 'La puerta al Paisaje Cultural Cafetero', image: 'launion-image.jpg'},
+        {coords: [4.53309, -76.10383], name: 'LaUnion', description: 'Capital vitivinícola de Colombia', image: 'launion-image.jpg'},
         {coords: [4.3369, -75.8275], name: 'Caicedonia', description: 'La centinela del Valle', image: 'caicedonia-image.jpg'},
         {coords: [4.3936, -76.0742], name: 'Zarzal', description: 'La tierra que endulza a Colombia', image: 'zarzal-image.jpg'}
     ];
@@ -80,30 +87,29 @@ document.addEventListener('DOMContentLoaded', function () {
     // Marcadores de sitios de interés turístico
     var attractions = [
         // En Sevilla
-        {coords: [4.2871, -75.9335], name: 'Iglesia Nuestra Señora del Rosario', description: 'Iglesia colonial en el centro histórico de Sevilla', image: 'sevilla-iglesia.jpg', icon: museumIcon},
-        {coords: [4.2883, -75.9391], name: 'Parque Principal', description: 'Parque central con árboles frondosos y bancas', image: 'sevilla-parque.jpg', icon: parkIcon},
-        {coords: [4.2856, -75.9347], name: 'Casa de la Cultura', description: 'Centro cultural con exposiciones de arte y eventos', image: 'sevilla-casa-cultura.jpg', icon: artGalleryIcon},
-        {coords: [4.2892, -75.9413], name: 'Cascada del Amor', description: 'Cascada natural para disfrutar de la naturaleza', image: 'sevilla-cascada.jpg', icon: parkIcon},
+        {coords: [4.2871, -75.9335], name: 'Basílica San Luis Gonzaga', description: 'Iglesia cuyo diseño arquitectónico es tipo neogótico', image: 'sevilla-basilica-san-luis-gonzaga.jpg', icon: museumIcon},
+        {coords: [4.2883, -75.9391], name: 'Mirador Alto de la Cruz', description: 'Plazoleta cuenta con variedad gastronómica, asados, comidas rápidas, cócteles, comida fusión mexicana', image: 'sevilla-mirador-delacruz.jpg', icon: parkIcon},
+        {coords: [4.27464, -75.93098], name: 'El Bosque que Camina', description: 'Parque Eco Pedagógico y Turístico, ideal para los amantes de las bondades del bambú y de la guadua', image: 'sevilla-bosque-camina.jpg', icon: artGalleryIcon},
+        {coords: [4.2892, -75.9413], name: 'Cascada La Toma', description: 'Destino que vale la pena conocer en Sevilla, especialmente para los amantes de la naturaleza', image: 'sevilla-cascada-latoma.jpg', icon: parkIcon},
         // En Roldanillo
         {coords: [4.4102, -76.1453], name: 'Museo Rayo', description: 'Museo de arte moderno', image: 'roldanillo-museo.jpg', icon: museumIcon},
         {coords: [4.4052, -76.1484], name: 'Parque de la Cultura', description: 'Parque al aire libre con obras de arte escultóricas', image: 'roldanillo-parque.jpg', icon: parkIcon},
         {coords: [4.4098, -76.1519], name: 'Plaza de Toros', description: 'Plaza de toros histórica', image: 'roldanillo-plaza-toros.jpg', icon: parkIcon},
         {coords: [4.4128, -76.1506], name: 'Galería de Arte Contemporáneo', description: 'Galería con exposiciones de arte contemporáneo', image: 'roldanillo-galeria.jpg', icon: artGalleryIcon},
         // En La Unión
-        {coords: [4.531, -76.753], name: 'Cerro del Mirador', description: 'Mirador con vista panorámica del Valle del Cauca', image: 'launion-mirador.jpg', icon: parkIcon},
-        {coords: [4.522, -76.749], name: 'Parque Lineal del Rio', description: 'Área recreativa junto al río', image: 'launion-parque-rio.jpg', icon: parkIcon},
-        {coords: [4.521, -76.754], name: 'Plaza de la Libertad', description: 'Plaza central con áreas verdes y juegos para niños', image: 'launion-plaza-libertad.jpg', icon: parkIcon},
-        {coords: [4.528, -76.752], name: 'Museo de la Uva', description: 'Museo dedicado a la historia y cultura de la uva en la región', image: 'launion-museo-uva.jpg', icon: museumIcon},
+        {coords: [4.53797, -76.11664], name: 'La Cantera Bike Park', description: 'Bajada de downhill en bicicleta Specialized de enduro', image: 'launion-lacantera-bikepark.jpg', icon: parkIcon},
+        {coords: [4.53033, -76.08736], name: 'Parque Nacional de la Uva', description: 'Una experiencia única en el Valle del Cauca', image: 'launion-parque-uva.jpg', icon: parkIconUva},
+        {coords: [4.53122, -76.09412], name: 'Museo de la Uva y el vino', description: 'Museo dedicado a la viticultura, a la producción e historia del vino y su difusión', image: 'launion-museo-uvayvino.jpg', icon: parkIcon},
         // En Caicedonia
-        {coords: [4.3406, -75.8274], name: 'Parque de la Libertad', description: 'Parque central de la ciudad', image: 'caicedonia-parque.jpg', icon: parkIcon},
-        {coords: [4.3402, -75.8271], name: 'Iglesia de San José', description: 'Iglesia histórica con arquitectura colonial', image: 'caicedonia-iglesia.jpg', icon: museumIcon},
-        {coords: [4.3413, -75.8265], name: 'Monumento al Café', description: 'Monumento que celebra la cultura del café', image: 'caicedonia-monumento.jpg', icon: parkIcon},
-        {coords: [4.3428, -75.8270], name: 'Plaza de Bolívar', description: 'Plaza principal con monumentos históricos', image: 'caicedonia-plaza.jpg', icon: parkIcon},
+        {coords: [4.33231, -75.82913], name: 'Parque Principal', description: 'Parque central de la ciudad', image: 'caicedonia-parque-principal.jpg', icon: parkIcon},
+        {coords: [4.53033, -76.08736], name: 'Biomurales', description: 'Iglesia histórica con arquitectura colonial', image: 'caicedonia-biomurales.jpg', icon: museumIcon},
+        {coords: [4.53122, -76.09412], name: 'Parque Nacional de las Heliconias', description: 'Lugar de fácil acceso, rodeado de cultivos de café y cítricos que hacen del viaje una experiencia en sí misma', image: 'caicedonia-parque-heliconias.jpg', icon: parkIcon},
+        // {coords: [4.3428, -75.8270], name: 'Plaza de Bolívar', description: 'Plaza principal con monumentos históricos', image: 'caicedonia-plaza.jpg', icon: parkIcon},
         // En Zarzal (Guasimal - Avistamiento de OVNIS)
-        {coords: [4.3861, -76.0809], name: 'Guasimal', description: 'Corregimiento conocido por avistamientos de OVNIS', image: 'zarzal-guasimal.jpg', icon: museumIcon},
-        {coords: [4.3987, -76.0864], name: 'Iglesia de la Inmaculada Concepción', description: 'Iglesia en el centro de Guasimal', image: 'zarzal-iglesia.jpg', icon: museumIcon},
-        {coords: [4.3874, -76.0838], name: 'Parque Principal', description: 'Parque central con áreas verdes y juegos infantiles', image: 'zarzal-parque.jpg', icon: parkIcon},
-        {coords: [4.3921, -76.0821], name: 'Museo Histórico', description: 'Museo con artefactos históricos de la región', image: 'zarzal-museo.jpg', icon: museumIcon}
+        {coords: [4.41302, -76.04178], name: 'Guasimal', description: 'Corregimiento conocido por avistamientos de OVNIS', image: 'zarzal-guasimal.jpg', icon: museumIcon},
+        {coords: [4.37735, -76.07109], name: 'Kartódromo Internacional', description: 'Si eres amante de la velocidad podrás conocer el Kartódromo Internacional de Zarzal', image: 'zarzal-kartodromo.jpg', icon: museumIcon},
+        {coords: [4.39524, -76.07117], name: 'Parque Principal', description: 'Parque central con áreas verdes y esculturas de iguanas', image: 'zarzal-parque.jpg', icon: parkIcon},
+        {coords: [4.36459, -75.94835], name: 'Complejo Ecoturístico Leña Verde', description: 'Es un amplio espacio natural diseñado y adecuado para la recreación', image: 'zarzal-lena-verde.jpg', icon: museumIcon}
         // Agrega más sitios de interés turístico según sea necesario
     ];
 
@@ -113,8 +119,8 @@ document.addEventListener('DOMContentLoaded', function () {
         attractionMarker.bindPopup(popupContent);
         attractionMarker.on('click', function () {
             var imagePopup = L.popup()
-                .setLatLng(attraction.coords)
-                .setContent('<img src="' + attraction.image + '" alt="' + attraction.name + '" class="popup-image">')
+                .setLatLng(attractionMarker.getLatLng())
+                .setContent('<img src="' + attraction.image + '" class="popup-image">')
                 .openOn(map);
         });
     });
