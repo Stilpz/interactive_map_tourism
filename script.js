@@ -37,6 +37,12 @@ document.addEventListener('DOMContentLoaded', function () {
             iconSize: [40, 40],
             iconAnchor: [20, 40],
             popupAnchor: [0, -40]
+        }),
+        Uva: L.icon({
+            iconUrl: 'park-icon-uva.png', // Icono para parque de la Uva
+            iconSize: [30, 30],
+            iconAnchor: [15, 30],
+            popupAnchor: [0, -30]
         })
     };
 
@@ -71,11 +77,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Marcadores de ciudades
     var cities = [
-        {coords: [4.287, -75.935], name: 'Sevilla', description: 'Pueblo Mágico, Capital cafetera y Balcón del Valle', image: 'sevilla-image.jpg'},
-        {coords: [4.415, -76.147], name: 'Roldanillo', description: 'Pueblo Mágico', image: 'roldanillo-image.jpg'},
+        {coords: [4.265020858056078, -75.93436804040148], name: 'Sevilla', description: 'Pueblo Mágico, Capital cafetera y Balcón del Valle', image: 'sevilla-image.jpg'},
+        {coords: [4.41062865492367, -76.15432375128934], name: 'Roldanillo', description: 'Pueblo Mágico', image: 'roldanillo-image.jpg'},
         {coords: [4.53309, -76.10383], name: 'LaUnion', description: 'Capital vitivinícola de Colombia', image: 'launion-image.jpg'},
-        {coords: [4.3369, -75.8275], name: 'Caicedonia', description: 'La centinela del Valle', image: 'caicedonia-image.jpg'},
-        {coords: [4.3936, -76.0742], name: 'Zarzal', description: 'La tierra que endulza a Colombia', image: 'zarzal-image.jpg'}
+        {coords: [4.33471, -75.82686], name: 'Caicedonia', description: 'La centinela del Valle', image: 'caicedonia-image.jpg'},
+        {coords: [4.39678, -76.07290], name: 'Zarzal', description: 'La tierra que endulza a Colombia', image: 'zarzal-image.jpg'}
     ];
 
     cities.forEach(function(city) {
@@ -100,11 +106,12 @@ document.addEventListener('DOMContentLoaded', function () {
         {coords: [4.53797, -76.11664], name: 'La Cantera Bike Park', description: 'Bajada de downhill en bicicleta Specialized de enduro', image: 'launion-lacantera-bikepark.jpg', icon: parkIcon},
         {coords: [4.53033, -76.08736], name: 'Parque Nacional de la Uva', description: 'Una experiencia única en el Valle del Cauca', image: 'launion-parque-uva.jpg', icon: parkIconUva},
         {coords: [4.53122, -76.09412], name: 'Museo de la Uva y el vino', description: 'Museo dedicado a la viticultura, a la producción e historia del vino y su difusión', image: 'launion-museo-uvayvino.jpg', icon: parkIcon},
+        {coords: [4.526306942000144, -76.0885469776011], name: 'Hotel Los Viñedos', description: 'Hotel de referencia en la región', image: 'launion-hotel-losvinedos.jpg', icon: museumIcon},
         // En Caicedonia
-        {coords: [4.33231, -75.82913], name: 'Parque Principal', description: 'Parque central de la ciudad', image: 'caicedonia-parque-principal.jpg', icon: parkIcon},
-        {coords: [4.53033, -76.08736], name: 'Biomurales', description: 'Iglesia histórica con arquitectura colonial', image: 'caicedonia-biomurales.jpg', icon: museumIcon},
-        {coords: [4.53122, -76.09412], name: 'Parque Nacional de las Heliconias', description: 'Lugar de fácil acceso, rodeado de cultivos de café y cítricos que hacen del viaje una experiencia en sí misma', image: 'caicedonia-parque-heliconias.jpg', icon: parkIcon},
-        // {coords: [4.3428, -75.8270], name: 'Plaza de Bolívar', description: 'Plaza principal con monumentos históricos', image: 'caicedonia-plaza.jpg', icon: parkIcon},
+        {coords: [4.33249, -75.82906], name: 'Parque Principal de Caicedonia', description: 'Parque central de la ciudad', image: 'caicedonia-parque-principal.jpg', icon: parkIcon},
+        {coords: [4.33202, -75.82383], name: 'Romboide La Celestina', description: 'Glorieta con monumentos culturales propios de Caicedonia: Jeeps', image: 'caicedonia-romboide-lacelestina.jpg', icon: museumIcon},
+        {coords: [4.31881, -75.87541], name: 'Parque Nacional de las Heliconias', description: 'Lugar de fácil acceso, rodeado de cultivos de café y cítricos que hacen del viaje una experiencia en sí misma', image: 'caicedonia-parque-heliconias.jpg', icon: parkIcon},
+        {coords: [4.32247, -75.82009], name: 'Mirador Caicedonia', description: 'Mirador en las afueras de Caicedonia', image: 'caicedonia-mirador.jpg', icon: parkIcon},
         // En Zarzal (Guasimal - Avistamiento de OVNIS)
         {coords: [4.41302, -76.04178], name: 'Guasimal', description: 'Corregimiento conocido por avistamientos de OVNIS', image: 'zarzal-guasimal.jpg', icon: museumIcon},
         {coords: [4.37735, -76.07109], name: 'Kartódromo Internacional', description: 'Si eres amante de la velocidad podrás conocer el Kartódromo Internacional de Zarzal', image: 'zarzal-kartodromo.jpg', icon: museumIcon},
@@ -117,11 +124,5 @@ document.addEventListener('DOMContentLoaded', function () {
         var attractionMarker = L.marker(attraction.coords, {icon: attraction.icon}).addTo(map);
         var popupContent = '<div style="text-align:center;"><h3>' + attraction.name + '</h3><img src="' + attraction.image + '" alt="' + attraction.name + '" class="popup-image"><p>' + attraction.description + '</p></div>';
         attractionMarker.bindPopup(popupContent);
-        attractionMarker.on('click', function () {
-            var imagePopup = L.popup()
-                .setLatLng(attractionMarker.getLatLng())
-                .setContent('<img src="' + attraction.image + '" class="popup-image">')
-                .openOn(map);
-        });
     });
 });
