@@ -47,24 +47,32 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Icono para los sitios de interés turístico
-    var museumIcon = L.divIcon({
-        className: 'attraction-icon',
-        html: '<i class="fas fa-university"></i>'
+    var museumIcon = L.icon({
+        iconUrl: 'assets/img/icons/museum-icon.png', // Icono para museos
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30]
     });
 
-    var parkIcon = L.divIcon({
-        className: 'attraction-icon',
-        html: '<i class="fas fa-park"></i>'
+    var parkIcon = L.icon({
+        iconUrl: 'assets/img/icons/park-icon.png', // Icono para parques
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30]
     });
 
-    var parkIconUva = L.divIcon({
-        className: 'attraction-icon',
-        html: '<i class="fas fa-tree"></i>'
+    var parkIconUva = L.icon({
+        iconUrl: 'assets/img/icons/park-icon-uva.png', // Icono para parque de la Uva
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30]
     });
 
-    var artGalleryIcon = L.divIcon({
-        className: 'attraction-icon',
-        html: '<i class="fas fa-paint-brush"></i>'
+    var artGalleryIcon = L.icon({
+        iconUrl: 'assets/img/icons/art-gallery-icon.png', // Icono para galerías de arte
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30]
     });
 
     // Marcadores de ciudades
